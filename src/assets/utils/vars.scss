@@ -1,0 +1,48 @@
+//Vars:
+// ==========================================================================
+
+
+// Font
+$mainFont                : 'Montserrat', Helvetica, Arial, sans-serif;
+$titleFont               : 'Roboto', Helvetica, Arial, sans-serif;
+$jostFont                : 'Jost', sans-serif;
+
+// Main color
+$mainFontColor           : #101010;
+$regular-color           : #807A7A;
+$default-color           : #FFFFFF;
+$primaryLight-color      : #3fbdd8;
+$primary-color           : #2286A9;
+$primaryDark-color       : #155a69;
+$accent-color            : #FFB701; // rgba(255, 183, 1, 1)
+$accentDark-color        : #e5a400;
+
+// Gradient color
+$gradient-default         : linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+// Neutral Color
+$neutral-regular         : #232526;
+$neutral-primary         : #333436;
+$neutral-secondary       : #414345;
+$neutral-tertiary        : #606266;
+$neutral-fourth          : #9d9d9d;
+$neutral-placeholder     : #C0C4CC;
+
+// Border Color
+$border-base             : #DCDFE6;
+$border-light            : #E4E7ED;
+$border-lighter          : #EBEEF5;
+$border-max-lighter      : #F2F6FC;
+
+// Transition
+$transition-default      : 0.4s all ease-in-out;
+
+// Size
+$mainFontSize            : 16px;
+
+$desktopWidth            : 1920px;
+$laptopWidth             : 1440px;
+$lgTabletWidth           : 1024px;
+$tabletWidth             : 768px;
+$phoneWidth              : 480px;
+$smPhoneWidth            : 479px;

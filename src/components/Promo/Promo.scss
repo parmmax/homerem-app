@@ -1,0 +1,59 @@
+@import "../../assets/utils/vars";
+@import "../../assets/utils/mixins";
+
+
+.promo-screen {
+  flex: 1 0 100%;
+  position: relative;
+  padding: 0;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 100%),
+    url("../../assets/img/promo1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  .promo-title {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    height: 100vh;
+    max-width: 480px;
+    color: $default-color;
+    @include container;
+
+    @media (max-width: $tabletWidth) {
+      align-items: center;
+      text-align: center;
+    }
+
+    & h1 {
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: rem(20) 0;
+    }
+
+    & h4 {
+      font-weight: 500;
+    }
+
+    & h4:nth-of-type(2) {
+      margin-bottom: rem(80);
+    }
+    &__button {
+      @include button-default;
+    }
+  }
+}
+

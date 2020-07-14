@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import SideBar from "./components/Sidebar/Sidebar";
+import Promo from "./components/Promo/Promo";
+import Services from "./components/Services/Services";
+import Steps from "./components/Steps/Steps";
+import Tariffs from "./components/Tariffs/Tariffs";
+import Form from "./components/Form/Form";
+import Footer from "./components/Footer/Footer";
+import "./App.css";
+import './App.scss';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+    return (
+        <div id="App" className="app-wrapper">
+            <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"}/>
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+            <main className="page">
+                <Promo/>
+                <div className="content">
+                    <Services/>
+                    <Tariffs/>
+                    <Steps/>
+                    <Form/>
+                    <Footer/>
+                </div>
+            </main>
+        </div>
+    );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App/>, rootElement);
+

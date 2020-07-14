@@ -1,0 +1,63 @@
+// utils
+@import "./assets/utils/reset";
+@import "./assets/utils/fonts";
+@import "./assets/utils/vars";
+@import "./assets/utils/mixins";
+
+html {
+  color: $mainFontColor;
+  background-color: $default-color;
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  @include for-smPhoneWidth;
+  @include for-phoneWidth;
+  @include for-tableWidth;
+  @include for-laptopWidth;
+  @include for-lgLaptopWidth;
+  @include for-desktopWidth;
+}
+
+.app-wrapper {
+
+  .page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $jostFont;
+}
+
+section,
+.section {
+  position: relative;
+  padding: 42px 0;
+  @media screen and (max-width: $laptopWidth) {
+    padding: 36px 0;
+  }
+  @media screen and (max-width: $tabletWidth) {
+    padding: 28px 0;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    padding: 20px 0;
+  }
+}
+
+// Modules:
+// example: @import "models/my-module.scss";

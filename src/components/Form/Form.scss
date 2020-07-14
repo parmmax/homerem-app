@@ -1,0 +1,124 @@
+@import "../../assets/utils/vars";
+@import "../../assets/utils/mixins";
+
+
+.forms-wrapper {
+  display: flex;
+  width: 100%;
+  //height: 100vh;
+  color: $default-color;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 100%),
+  url("../../assets/img/builder-3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  @media (max-width: $lgTabletWidth) {
+    height: auto;
+  }
+
+  .forms-section {
+    @include container;
+    padding: rem(40) 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: $jostFont;
+
+
+    & .forms-title {
+      padding: rem(10) rem(0);
+      display: flex;
+      text-align: center;
+
+      & h2 {
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 0 0 rem(40) 0;
+      }
+    }
+
+    & .form {
+      padding: rem(10) 0 rem(10) rem(0);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: stretch;
+      min-width: rem(500);
+      @media (max-width: $lgTabletWidth) {
+        min-width: rem(400);
+      }
+      @media (max-width: $phoneWidth) {
+        min-width: 100%;
+      }
+
+      &__checkbox {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: rem(20);
+
+        & input {
+          width: 20px;
+          height: 20px;
+          padding: 10px 10px;
+          margin-right: rem(10);
+          outline: none;
+          box-shadow: 0 0 16px $regular-color;
+
+          &:hover {
+            box-shadow: 0 0 16px $primaryLight-color;
+          }
+
+          &:focus {
+            box-shadow: 0 0 16px $accent-color;
+          }
+        }
+      }
+
+      &__input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: rem(20);
+
+        & input, textarea {
+          padding: 10px 10px;
+          outline: none;
+          box-shadow: 0 0 16px $regular-color;
+          color: $primary-color;
+          font-weight: 500;
+          font-size: rem(18);
+          font-family: $jostFont;
+          transition: $transition-default;
+
+          &::placeholder {
+            font-family: Montserrat, sans-serif;
+            font-weight: 200;
+            color: $regular-color;
+          }
+
+          &:hover {
+            box-shadow: 0 0 16px $primaryLight-color;
+          }
+
+          &:focus {
+            box-shadow: 0 0 16px $accent-color;
+          }
+        }
+
+        & .reminder {
+          //color: #db2269;
+          color: $default-color;
+          font-size: rem(16);
+          margin-bottom: rem(10);
+          text-align: left;
+        }
+      }
+
+      & button {
+        @include button-default;
+        box-shadow: 0 0 16px $primaryDark-color;
+      }
+    }
+  }
+}

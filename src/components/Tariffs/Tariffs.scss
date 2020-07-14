@@ -1,0 +1,152 @@
+@import "../../assets/utils/vars";
+@import "../../assets/utils/mixins";
+
+.tariffs {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: $jostFont;
+  background: linear-gradient(90deg, $primaryDark-color, $primaryLight-color);
+  @media (max-width: $lgTabletWidth) {
+    height: auto;
+  }
+
+  @media (max-width: $tabletWidth) {
+    padding: 0 0 rem(36) 0;
+  }
+
+  &-title {
+    @include container;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: $default-color;
+    padding: 0 0 rem(40) rem(10);
+    @media (max-width: $tabletWidth) {
+      padding: rem(20) 0;
+      justify-content: center;
+      text-align: center;
+    }
+
+    & h2 {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  &-main {
+    @include container;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    //padding: rem(10) 0;
+
+    @media (max-width: $tabletWidth) {
+      //flex-flow: column nowrap;
+    }
+  }
+
+  &-card {
+    min-width: 300px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin: rem(10);
+    padding: rem(10);
+    background-color: $default-color;
+    transition: $transition-default;
+    box-shadow: 0 0 36px $primaryDark-color;
+    &:hover {
+      box-shadow: 0 0 36px $primaryLight-color;
+    }
+    @media (max-width: $lgTabletWidth) {
+      min-width: 240px;
+    }
+
+    @media (max-width: $tabletWidth) {
+      min-width: 100%;
+      //padding: 0 rem(10);
+      margin: rem(5) rem(10);
+    }
+
+    @media (max-width: $phoneWidth) {
+      //min-width: 160px;
+    }
+
+    & h4 {
+      color: $accentDark-color;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: rem(1);
+      //border-top: 1px solid $accent-color;
+      border-bottom: 1px solid $accent-color;
+    }
+
+    & .p2 {
+      font-size: rem(20);
+      color: $regular-color;
+    };
+
+    & .price {
+      padding: 0 0 rem(10) 0;
+
+      & p:first-child {
+        color: $neutral-placeholder;
+      }
+
+      & h5 {
+        font-weight: 600;
+        color: $primaryDark-color;
+      }
+
+      & h6 {
+        color: $primaryDark-color;
+        font-size: rem(14);
+      }
+    }
+
+    &__list {
+      margin-bottom: rem(10);
+
+      & .p4 {
+        font-size: rem(12);
+      }
+    }
+  }
+
+  & .p1 {
+    padding: 0 0 rem(10) 0;
+    text-align: center;
+    color: $default-color;
+    & a {
+      color: $default-color;
+      transition: $transition-default;
+
+      &:hover {
+        color: $accentDark-color;
+      }
+    }
+  }
+  & .button {
+    margin-top: auto;
+    @include button-default;
+    border: 1px solid $accentDark-color;
+    background-color: $accentDark-color;
+    box-shadow: none;
+    color: $default-color;
+    font-weight: 700;
+
+    &:hover {
+      background-color: $default-color;
+      box-shadow: 0 0 10px rgba(255, 183, 1, 0.2);
+      border: 1px solid $default-color;
+      color: $accentDark-color;
+    }
+  }
+}
