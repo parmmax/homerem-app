@@ -18,22 +18,21 @@ class Form extends React.Component {
     };
 
     componentDidMount = () => {
-        this.getCustomers();
+        this.getFeedback();
     };
 
-    getCustomers = () => {
-        axios.get('/api')
+    getFeedback = () => {
+        axios.get('/')
             .then((response) => {
                 const data = response.data;
                 this.setState({ messages: data });
-                console.log('Data has been received!');
+                // console.log('Data has been received!');
             })
             .catch(() => {
                 console.log('Error retrieving data!');
             });
     };
 
-    // firstName
     handleFirstNameChange = ({ target }) => {
         const { name, value } = target;
         switch (name) {
@@ -49,12 +48,10 @@ class Form extends React.Component {
         this.setState({ firstName: value })
     };
 
-    // phoneNum
     handlePhoneNumChange = (value) => {
         this.setState({ phoneNum: value })
     };
 
-    // message
     handleMessageChange = ({ target }) => {
         const { name, value } = target;
 
@@ -84,10 +81,10 @@ class Form extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.state.isDisabled === true) {
-            alert('Form submitted')
+            console.log('Form submitted');
 
         } else {
-            alert('form has not submitted');
+            console.log('Form has not submitted');
         }
     };
 
@@ -101,32 +98,30 @@ class Form extends React.Component {
         };
 
         axios({
-            url: '/api/save',
+            url: '/',
             method: 'POST',
             data: payload
         })
             .then(() => {
                 console.log('Data has been sent to the server');
                 this.resetUsersInputs();
-                this.getCustomers();
+                this.getFeedback();
             })
             .catch(() => {
                 console.log('Internal server error')
             });
 
-        // ----------------------------------------------------
         axios({
-            url: '/api/send-email',
+            url: '/feedback',
             method: 'POST',
             data: payload
         })
             .then(() => {
-                console.log('Data was SENT!')
+                console.log('Data was SENT!');
             })
             .catch(() => {
                 console.log('Error SENT!')
             })
-        // ----------------------------------------------------
     };
 
     resetUsersInputs = () => {
@@ -154,7 +149,7 @@ class Form extends React.Component {
                     <title className="forms-title">
                         <h2>Получить смету</h2>
                     </title>
-                    <form className="form" action="/" onSubmit={this.submit}>
+                    <form className="form" action="/feedback" onSubmit={this.submit}>
                         <div className="form__input">
                             <p className="p4 reminder">Как к Вам обращаться?</p>
                             <input

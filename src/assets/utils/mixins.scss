@@ -53,6 +53,9 @@
     background-color: $accentDark-color;
     box-shadow: none;
   }
+  &:focus {
+    box-shadow: 0 0 10px $primaryDark-color;
+  }
 
   @media (max-width: $phoneWidth) {
     min-width: 200px;
@@ -80,6 +83,10 @@
     border: 1px solid $accentDark-color;
     background-color: $accentDark-color;
     box-shadow: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 10px $primaryDark-color;
   }
 
   @media (max-width: $phoneWidth) {
