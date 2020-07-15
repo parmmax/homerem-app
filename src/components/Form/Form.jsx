@@ -25,7 +25,7 @@ class Form extends React.Component {
         axios.get('/')
             .then((response) => {
                 const data = response.data;
-                this.setState({ messages: data });
+                this.setState({messages: data});
                 // console.log('Data has been received!');
             })
             .catch(() => {
@@ -33,8 +33,8 @@ class Form extends React.Component {
             });
     };
 
-    handleFirstNameChange = ({ target }) => {
-        const { name, value } = target;
+    handleFirstNameChange = ({target}) => {
+        const {name, value} = target;
         switch (name) {
             case 'firstName':
                 this.firstName =
@@ -45,15 +45,15 @@ class Form extends React.Component {
             default:
                 break;
         }
-        this.setState({ firstName: value })
+        this.setState({firstName: value})
     };
 
     handlePhoneNumChange = (value) => {
-        this.setState({ phoneNum: value })
+        this.setState({phoneNum: value})
     };
 
-    handleMessageChange = ({ target }) => {
-        const { name, value } = target;
+    handleMessageChange = ({target}) => {
+        const {name, value} = target;
 
         switch (name) {
             case 'message':
@@ -65,17 +65,17 @@ class Form extends React.Component {
             default:
                 break;
         }
-        this.setState({ [name]: value });
+        this.setState({[name]: value});
     };
 
     handleCheckboxChange = () => {
-        this.setState({ isChecked: !this.state.isChecked });
+        this.setState({isChecked: !this.state.isChecked});
         if (this.state.isChecked) {
-            this.setState({ isDisabled: true })
+            this.setState({isDisabled: true})
 
         } else
 
-            this.setState({ isDisabled: false });
+            this.setState({isDisabled: false});
     };
 
     handleSubmit = (e) => {
@@ -88,8 +88,8 @@ class Form extends React.Component {
         }
     };
 
-    submit = (event) => {
-        event.preventDefault();
+    submit = (e) => {
+        e.preventDefault();
 
         const payload = {
             firstName: this.state.firstName,
@@ -99,11 +99,11 @@ class Form extends React.Component {
 
         axios({
             url: '/',
-            method: 'POST',
+            method: 'GET',
             data: payload
         })
             .then(() => {
-                console.log('Data has been sent to the server');
+                console.log('Data has been sent to the email');
                 this.resetUsersInputs();
                 this.getFeedback();
             })
@@ -143,6 +143,7 @@ class Form extends React.Component {
             msgCheck = "Согласиться на обработку персональных данных";
         }
 
+
         return (
             <div id="form" className="forms-wrapper">
                 <section className="forms-section">
@@ -159,49 +160,46 @@ class Form extends React.Component {
                                 placeholder="Имя"
                                 maxLength={18}
                                 value={this.state.firstName}
-                                onChange={this.handleFirstNameChange} />
+                                onChange={this.handleFirstNameChange}/>
                         </div>
                         <div className="form__input">
                             <p className="p4 reminder">Введите номер начиная с +7</p>
                             <PhoneInput id="phoneNum"
-                                name="phoneNum"
-                                placeholder="+7 987 654 3210"
-                                country="RU"
-                                defaultCountry="RU"
-                                labels={RU}
-                                maxLength={16}
-                                countrieDefault
-                                value={this.state.phoneNum}
-                                onChange={this.handlePhoneNumChange}
-                                getCountryCallingC
+                                        name="phoneNum"
+                                        placeholder="+7 987 654 3210"
+                                        country="RU"
+                                        defaultCountry="RU"
+                                        labels={RU}
+                                        maxLength={16}
+                                        value={this.state.phoneNum}
+                                        onChange={this.handlePhoneNumChange}
 
                             />
                         </div>
                         <div className="form__input">
                             <p className="p4 reminder">Например: Сколько стоит ремонт квартиры площадью 39 кв.м?</p>
                             <textarea id="message"
-                                name="message"
-                                cols="10"
-                                rows="7"
-                                maxLength={180}
-                                value={this.state.message}
-                                placeholder="Сообщение"
-                                onChange={this.handleMessageChange}>
+                                      name="message"
+                                      cols="10"
+                                      rows="7"
+                                      maxLength={180}
+                                      value={this.state.message}
+                                      placeholder="Сообщение"
+                                      onChange={this.handleMessageChange}>
                             </textarea>
                         </div>
                         <div className="form__checkbox">
                             <input type="checkbox"
-                                required
-                                // defaultChecked={this.state.isChecked}
-                                checked={this.state.isChecked}
-                                onChange={this.handleCheckboxChange} />
+                                   required
+                                   checked={this.state.isChecked}
+                                   onChange={this.handleCheckboxChange}/>
                             <p className="p4 reminder">
                                 {msgCheck}
                             </p>
                         </div>
                         <button className="button-submit"
-                            onChange={this.handleSubmit}
-                            disabled={this.isDisabled}>Отправить
+                                onChange={this.handleSubmit}
+                                disabled={this.state.isDisabled}>Отправить
                         </button>
                     </form>
                 </section>

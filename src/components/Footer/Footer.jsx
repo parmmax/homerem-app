@@ -11,9 +11,9 @@ const Footer = (props) => {
                 <div className="footer-list__item">
                     <a id="email"
                         className="footer-list__item-link"
-                        href="mailto:oweumen@gmail.com?subject=Смета ремонтных работ&body="
+                        href="mailto:info.homerem@gmail.com?subject=Смета ремонтных работ&body="
                         target="_blank"
-                        rel="noopener noreferrer"><img src={envelope} alt="envelope" />oweumen@gmail.com</a>
+                        rel="noopener noreferrer"><img src={envelope} alt="envelope" />info.homerem@gmail.com</a>
                     <p className="p3">ответим в течении часа</p>
                 </div>
                 <div className="footer-list__item">

@@ -43,11 +43,6 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    //padding: rem(10) 0;
-
-    @media (max-width: $tabletWidth) {
-      //flex-flow: column nowrap;
-    }
   }
 
   &-card {
@@ -71,12 +66,7 @@
 
     @media (max-width: $tabletWidth) {
       min-width: 100%;
-      //padding: 0 rem(10);
       margin: rem(5) rem(10);
-    }
-
-    @media (max-width: $phoneWidth) {
-      //min-width: 160px;
     }
 
     & h4 {
@@ -84,7 +74,6 @@
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: rem(1);
-      //border-top: 1px solid $accent-color;
       border-bottom: 1px solid $accent-color;
     }
 
